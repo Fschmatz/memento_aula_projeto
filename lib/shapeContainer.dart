@@ -12,7 +12,7 @@ class ShapeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160.0,
+      height: 210.0,
       child: Center(
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 500),
@@ -20,11 +20,11 @@ class ShapeContainer extends StatelessWidget {
           width: shape.width,
           decoration: BoxDecoration(
             color: shape.color,
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(20.0),
           ),
           child: const Icon(
-            Icons.star,
-            color: Colors.white,
+            Icons.thumb_up_alt_outlined,
+            size: 50,
           ),
         ),
       ),

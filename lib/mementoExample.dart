@@ -5,10 +5,8 @@ import 'package:memento_aula_projeto/shapeContainer.dart';
 
 import 'commandHistory.dart';
 import 'icommand.dart';
-import 'layoutConstants.dart';
+
 import 'originator.dart';
-
-
 
 class MementoExample extends StatefulWidget {
   const MementoExample();
@@ -41,34 +39,95 @@ class _MementoExampleState extends State<MementoExample> {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: const ScrollBehavior(),
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: LayoutConstants.paddingL,
-        ),
-        child: Column(
-          children: <Widget>[
-            ShapeContainer(
-              shape: _originator.state,
-            ),
-            const SizedBox(height: LayoutConstants.spaceM),
-            PlatformButton(
-              materialColor: Colors.black,
-              materialTextColor: Colors.white,
-              onPressed: _randomiseProperties,
-              text: 'Randomise properties',
-            ),
-            const Divider(),
-            PlatformButton(
-              materialColor: Colors.black,
-              materialTextColor: Colors.white,
-              onPressed: _commandHistory.isEmpty ? null : _undo,
-              text: 'Undo',
-            ),
-            const SizedBox(height: LayoutConstants.spaceM),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Memento Exemplo'),
+        backgroundColor: Colors.grey.shade800,
+        elevation: 0,
+      ),
+      body: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 150,
+              ),
+              ShapeContainer(
+                shape: _originator.state,
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                child: Container(
+                  height: 80,
+                  child: Card(
+                    color: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.library_add_outlined,size: 28,),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              "Randomizar",
+                              style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        onTap: _randomiseProperties,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 35,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
+                child: Container(
+                  height: 70,
+                  child: Card(
+                    color:
+                        _commandHistory.isEmpty ? Colors.grey : Colors.redAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.history_outlined,size: 28,),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              "Voltar",
+                              style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        onTap: _commandHistory.isEmpty ? null : _undo,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

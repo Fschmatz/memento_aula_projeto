@@ -8,9 +8,9 @@ class Shape{
   Shape(this.color, this.height, this.width);
 
   Shape.initial(){
-    color = Colors.black;
-    height = 150.0;
-    width = 150.0;
+    color = Colors.blueGrey;
+    height = 200.0;
+    width = 200.0;
   }
 
   Shape.copy(Shape shape) : this(shape.color, shape.height, shape.width);
