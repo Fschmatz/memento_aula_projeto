@@ -1,5 +1,5 @@
-import 'package:memento_aula_projeto/iMemento.dart';
-import 'package:memento_aula_projeto/shape.dart';
+import 'package:memento_aula_projeto/memento_classes/iMemento.dart';
+import 'package:memento_aula_projeto/classes/shape.dart';
 
 class Memento extends IMemento{
   late Shape _state;

@@ -1,6 +1,5 @@
 import 'dart:collection';
-
-import 'icommand.dart';
+import 'iCommand.dart';
 
 class CommandHistory {
   final ListQueue<ICommand> _commandList = ListQueue<ICommand>();

@@ -1,4 +1,4 @@
-import 'package:memento_aula_projeto/shape.dart';
+import 'package:memento_aula_projeto/classes/shape.dart';
 import 'iMemento.dart';
 import 'memento.dart';
 

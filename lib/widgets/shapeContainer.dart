@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memento_aula_projeto/shape.dart';
+import 'package:memento_aula_projeto/classes/shape.dart';
 
 
 class ShapeContainer extends StatelessWidget {
@@ -20,12 +20,9 @@ class ShapeContainer extends StatelessWidget {
           width: shape.width,
           decoration: BoxDecoration(
             color: shape.color,
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(25.0),
           ),
-          child: const Icon(
-            Icons.thumb_up_alt_outlined,
-            size: 50,
-          ),
+
         ),
       ),
     );
